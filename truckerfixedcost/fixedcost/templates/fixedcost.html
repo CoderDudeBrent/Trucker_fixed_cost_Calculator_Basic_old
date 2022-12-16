@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trucker Fixed Cost Calculator</title>
+</head>
+<body>
+<h1>Calculate your costs here!</h1>
+<form action="{% url 'calculate_cost' %}" method="post">
+  {% csrf_token %}
+    <label>Truck Payment:</label><br>
+    <input type="number" name="truck_payment"><br>
+    <label>Insurance Cost:</label><br>
+    <input type="number" name="insurance_cost"><br>
+    <label>License Plates:</label><br>
+    <input type="number" name="license_plates"><br>
+    <label>Permits:</label><br>
+    <input type="number" name="permits"><br>
+    <label>Total Miles Driven:</label><br>
+    <input type="number" name="total_miles_driven"><br><br>
+    <input type="submit" value="Calculate">
+
+
+<!-- Display the total cost -->
+<p>Total cost: {{ total_cost }}</p>
+
+<!-- Display the cost per mile -->
+<p>Cost per mile: {{ cost_per_mile }}</p>
+
+</form>
+</body>
+</html>
